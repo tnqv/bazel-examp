@@ -1,23 +1,27 @@
 ## Go project with bazel
 What is bazel ? Ref: https://docs.bazel.build/versions/master/build-ref.html
 
+- Focus on package build
+- Important to organize package and BUILD file
+- Contain WORKSPACE and BUILD at root directory
+
 Using go rules: https://github.com/bazelbuild/rules_go
 
-## Setup Bazel to use dependence from go.mod using [bazelisk](https://github.com/bazelbuild/bazelisk)
+Setup Bazel to use dependence from go.mod using [bazelisk](https://github.com/bazelbuild/bazelisk)
 
 - Generate project with go mod
 
-bazelisk run //:gazelle -- update-repos -from_file=go.mod
+`bazelisk run //:gazelle -- update-repos -from_file=go.mod`
 
 - Build package
 
-bazelisk build //pkg/app:app
+`bazelisk build //pkg/app:app`
 
 - Build project
 
-bazelisk build //...
+`bazelisk build //...`
 
 - Run package
 
-bazelisk run //pkg/app:app
+`bazelisk run //pkg/app:app`
 
